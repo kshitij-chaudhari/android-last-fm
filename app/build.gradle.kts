@@ -54,7 +54,6 @@ android {
 }
 
 dependencies {
-     android
     implementation(Libs.Google.material)
 
     // androidx

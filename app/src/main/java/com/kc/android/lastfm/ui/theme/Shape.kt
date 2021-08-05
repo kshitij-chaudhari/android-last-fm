@@ -1,3 +1,6 @@
+/*
+ * Copyright 2021 Kshitij Chaudhari
+ */
 package com.kc.android.lastfm.ui.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
