@@ -2,7 +2,7 @@
 This application uses Last FM Api to demonstrate android best practices.
 
 ## Getting LAST FM API Key
-To obtain a LAST FM API key, refer - https://www.last.fm/api/account/create
+To obtain a LAST FM API key, refer - https://www.last.fm/api/account/create.
 Once you have the key, add it inside your local or global gradle.properties -> `LAST_FM_API_KEY=<your-api-key>`
 
 ## Libraries Used
