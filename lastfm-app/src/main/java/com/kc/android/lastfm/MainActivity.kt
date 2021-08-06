@@ -11,13 +11,13 @@ import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
-import com.kc.android.lastfm.ui.theme.AndroidlastfmTheme
+import com.kc.android.lastfm.ui.theme.LastFmTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            AndroidlastfmTheme {
+            LastFmTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
                     Greeting("Android")
@@ -35,7 +35,7 @@ fun Greeting(name: String) {
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
-    AndroidlastfmTheme {
+    LastFmTheme {
         Greeting("Android")
     }
 }

@@ -16,14 +16,17 @@ object Plugins {
         const val android = "7.1.0-alpha04"
         const val kotlin = "1.5.10"
         const val spotless = "5.11.1"
+        const val hilt = "2.37"
     }
     const val android = "com.android.tools.build:gradle:${Versions.android}"
     const val kotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
     const val spotless = "com.diffplug.spotless:spotless-plugin-gradle:${Versions.spotless}"
+    const val hilt = "com.google.dagger:hilt-android-gradle-plugin:${Versions.hilt}"
 }
 
 dependencies {
     implementation(Plugins.android)
     implementation(Plugins.kotlin)
     implementation(Plugins.spotless)
+    implementation(Plugins.hilt)
 }

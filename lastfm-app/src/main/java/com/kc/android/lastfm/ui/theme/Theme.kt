@@ -31,7 +31,7 @@ private val LightColorPalette = lightColors(
 )
 
 @Composable
-fun AndroidlastfmTheme(
+fun LastFmTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable() () -> Unit
 ) {

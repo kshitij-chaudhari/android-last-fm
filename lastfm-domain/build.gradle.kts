@@ -2,9 +2,10 @@ import com.kc.android.lastfm.App
 import com.kc.android.lastfm.Libs
 
 plugins {
-    id("com.android.application")
+    id("com.android.library")
     id("kotlin-android")
     id("kotlin-kapt")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -14,11 +15,9 @@ android {
     defaultConfig {
         minSdk = App.minSdkVersion
         targetSdk = App.targetSdkVersion
-        versionCode = App.versionCode
-        versionName = App.versionName
-        applicationId = App.applicationId
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
@@ -31,6 +30,11 @@ android {
         }
     }
 
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
+    }
+
     kotlinOptions {
         allWarningsAsErrors = true
         jvmTarget = JavaVersion.VERSION_11.toString()
@@ -39,33 +43,35 @@ android {
         freeCompilerArgs = listOf("-Xopt-in=kotlin.RequiresOptIn")
     }
 
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
-
-    buildFeatures {
-        compose = true
-    }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = Libs.AndroidX.Compose.version
+    testOptions {
+        unitTests {
+            isIncludeAndroidResources = true
+            isReturnDefaultValues = true
+        }
     }
 }
 
 dependencies {
-    implementation(Libs.Google.material)
-
     // androidx
     implementation(Libs.AndroidX.coreKtx)
     implementation(Libs.AndroidX.appcompat)
-    implementation(Libs.AndroidX.lifecycleRuntimeKtx)
 
-    // compose
-    implementation(Libs.AndroidX.Compose.ui)
-    implementation(Libs.AndroidX.Compose.uiTooling)
-    implementation(Libs.AndroidX.Compose.uiToolingPreview)
-    implementation(Libs.AndroidX.Compose.foundation)
-    implementation(Libs.AndroidX.Compose.material)
-    implementation(Libs.AndroidX.Compose.activityCompose)
+    // paging
+    implementation(Libs.AndroidX.Paging.pagingRuntime)
+
+    // coroutines
+    implementation(Libs.Kotlin.Coroutines.core)
+    implementation(Libs.Kotlin.Coroutines.android)
+
+    // hilt
+    implementation(Libs.Google.Hilt.android)
+    kapt(Libs.Google.Hilt.compiler)
+
+    // test
+    testImplementation(Libs.Test.testCoreKtx)
+    testImplementation(Libs.Test.archCoreTesting)
+    testImplementation(Libs.Test.junit)
+    testImplementation(Libs.Test.androidxJunitKtx)
+    testImplementation(Libs.Test.mockk)
+    testImplementation(Libs.Test.truth)
 }
