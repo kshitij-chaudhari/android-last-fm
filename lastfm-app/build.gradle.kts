@@ -5,6 +5,7 @@ plugins {
     id("com.android.application")
     id("kotlin-android")
     id("kotlin-kapt")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -19,6 +20,8 @@ android {
         applicationId = App.applicationId
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String", "LASTFM_API_KEY", "\"${project.property("LASTFM_API_KEY")}\"")
     }
 
     buildTypes {
@@ -72,4 +75,8 @@ dependencies {
     implementation(Libs.AndroidX.Compose.foundation)
     implementation(Libs.AndroidX.Compose.material)
     implementation(Libs.AndroidX.Compose.activityCompose)
+
+    // hilt
+    implementation(Libs.Google.Hilt.android)
+    kapt(Libs.Google.Hilt.compiler)
 }
