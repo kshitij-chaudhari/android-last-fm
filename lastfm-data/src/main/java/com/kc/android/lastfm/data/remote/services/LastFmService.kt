@@ -29,5 +29,6 @@ interface LastFmService {
     suspend fun searchAlbumsBy(
         @Query(ALBUM_PARAM) searchString: String,
         @Query(PAGE_PARAM) page: Int,
-        @Query(LIMIT_PARAM) pageSize: Int): Response<AlbumSearchResponse>
+        @Query(LIMIT_PARAM) pageSize: Int
+    ): Response<AlbumSearchResponse>
 }

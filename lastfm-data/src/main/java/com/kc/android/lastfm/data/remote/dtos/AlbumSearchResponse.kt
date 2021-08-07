@@ -13,26 +13,34 @@ import com.google.gson.annotations.SerializedName
  *
  * The approach taken in this sample is to map response exactly using multiple Dtos
  */
-data class AlbumSearchResponse(val results: ResultsDto)
+data class AlbumSearchResponse(
+    @SerializedName("results") val results: ResultsDto
+)
 
 data class ResultsDto(
     @SerializedName("opensearch:Query") val query: QueryDto,
     @SerializedName("albummatches") val albumMatches: AlbumMatchesDto,
+    @SerializedName("opensearch:totalResults") val totalResults: Int,
+    @SerializedName("opensearch:startIndex") val startIndex: Int
 )
 
-data class QueryDto(@SerializedName("startPage") val page: Int)
+data class QueryDto(
+    @SerializedName("startPage") val page: Int
+)
 
-data class AlbumMatchesDto(@SerializedName("album") val albums: List<AlbumDto>)
+data class AlbumMatchesDto(
+    @SerializedName("album") val albums: List<AlbumDto>
+)
 
 data class AlbumDto(
-    val mbid: String,
-    val name: String,
-    val artist: String,
-    val url: String,
-    val image: List<ImageDto>
+    @SerializedName("mbid") val mbid: String,
+    @SerializedName("name") val name: String,
+    @SerializedName("artist") val artist: String,
+    @SerializedName("url") val url: String,
+    @SerializedName("image") val image: List<ImageDto>
 )
 
 data class ImageDto(
     @SerializedName("#text") val url: String,
-    val size: String
+    @SerializedName("size") val size: String
 )

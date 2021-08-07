@@ -33,7 +33,7 @@ class AlbumRepositoryImpl @Inject constructor(
      */
     override fun fetchAlbums(searchString: String, pageSize: Int) = Pager(
         config = PagingConfig(pageSize),
-        remoteMediator = AlbumRemoteMediator(db, service)
+        remoteMediator = AlbumRemoteMediator(db, service, searchString, pageSize)
     ) {
         albumDao.getPaginated()
     }.flow.map { pagingData -> pagingData.map { albumEntity -> albumEntity.toAlbum() } }
