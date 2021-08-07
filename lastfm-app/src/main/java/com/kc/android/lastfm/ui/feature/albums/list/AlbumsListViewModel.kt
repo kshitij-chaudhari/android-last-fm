@@ -31,7 +31,7 @@ class AlbumsListViewModel @Inject constructor(
      * Fetch flow of paginated albums from data layer.
      */
     private val _albums: MutableStateFlow<PagingData<Album>> = MutableStateFlow(PagingData.empty())
-    val albums = _albums.asStateFlow()
+    val albums = _albums.asStateFlow().cachedIn(viewModelScope)
 
     init {
         // on initial load, setting the searchString to some arbitrary value to load some data.
@@ -44,7 +44,7 @@ class AlbumsListViewModel @Inject constructor(
                 // delay and resetting to empty to demonstrate loading spinner is shown between searches
                 _albums.value = PagingData.empty()
                 delay(750)
-                albumUseCase.fetchAlbums(searchString = searchString, pageSize = 50).cachedIn(viewModelScope).collect {
+                albumUseCase.fetchAlbums(searchString = searchString, pageSize = 50).collect {
                     _albums.value = it
                 }
             }
