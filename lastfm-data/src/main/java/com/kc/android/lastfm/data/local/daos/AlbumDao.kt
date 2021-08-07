@@ -3,6 +3,7 @@
  */
 package com.kc.android.lastfm.data.local.daos
 
+import androidx.paging.PagingSource
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -26,4 +27,10 @@ interface AlbumDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(vararg albumEntity: AlbumEntity)
+
+    /**
+     * Return paginated data of [AlbumEntity]
+     */
+    @Query("SELECT * FROM albums ORDER BY id")
+    fun getPaginated(): PagingSource<Int, AlbumEntity>
 }

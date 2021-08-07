@@ -4,6 +4,7 @@
 package com.kc.android.lastfm.data.local.daos
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import androidx.paging.PagingSource
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.google.common.truth.Truth.assertThat
 import com.kc.android.lastfm.data.fake.FakeAlbumEntities
@@ -14,6 +15,7 @@ import dagger.hilt.android.testing.HiltTestApplication
 import dagger.hilt.android.testing.UninstallModules
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.TestCoroutineScope
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.After
@@ -80,5 +82,34 @@ class AlbumDaoTest {
 
         val actual = db.albumDao().get(FakeAlbumEntities.believe(1).id).first()
         assertThat(actual).isEqualTo(FakeAlbumEntities.believe(1))
+    }
+
+    /**
+     * Test [AlbumDao.getPaginated] to verify if the data returned is same as pageSize
+     */
+    @Test
+    fun `test-paging-source-returns-same-as-page-size`() {
+        runBlocking {
+            val albums = listOf(FakeAlbumEntities.believe(), FakeAlbumEntities.makeBelieve())
+            db.albumDao().insertAll(*albums.toTypedArray())
+
+            val resultPagingSource = db.albumDao().getPaginated()
+            val actual = resultPagingSource.load(
+                PagingSource.LoadParams.Refresh(
+                    key = null,
+                    loadSize = 1,
+                    placeholdersEnabled = false
+                )
+            )
+
+            // check if only FakeAlbumEntities.believe is returned
+            val expected = PagingSource.LoadResult.Page(
+                data = listOf(FakeAlbumEntities.believe(1)),
+                prevKey = null,
+                nextKey = 1
+            )
+
+            assertThat((actual as PagingSource.LoadResult.Page).data).isEqualTo(expected.data)
+        }
     }
 }

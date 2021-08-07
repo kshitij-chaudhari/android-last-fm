@@ -71,7 +71,7 @@ class LastFmServiceTest {
         mockServer.enqueue("album_search_believe.json", 200)
 
         runBlocking {
-            val response = lastFmService.searchAlbumsBy("believe")
+            val response = lastFmService.searchAlbumsBy("believe", 1, 10)
             assertThat(response).isNotNull()
             assertThat(response.body()).isNotNull()
         }
@@ -86,7 +86,7 @@ class LastFmServiceTest {
         mockServer.enqueue("album_search_believe.json", 200)
 
         runBlocking {
-            val response = lastFmService.searchAlbumsBy("believe")
+            val response = lastFmService.searchAlbumsBy("believe", 1, 10)
 
             // verify page index
             assertThat(response.body()?.results?.query?.page).isEqualTo(1)
@@ -117,8 +117,8 @@ class LastFmServiceTest {
 
         runBlocking {
             val searchString = "believe"
-            lastFmService.searchAlbumsBy(searchString)
-            assertThat(mockServer.takeRequest().path).isEqualTo("/?method=album.search&format=json&album=$searchString&page=1&limit=30&api_key=$FAKE_API_KEY")
+            lastFmService.searchAlbumsBy(searchString, 1, 10)
+            assertThat(mockServer.takeRequest().path).isEqualTo("/?method=album.search&format=json&album=$searchString&page=1&limit=10&api_key=$FAKE_API_KEY")
         }
     }
 }

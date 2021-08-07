@@ -22,9 +22,12 @@ interface LastFmService {
     }
 
     /**
-     * Query to fetch albums by [searchString] and optional [page] and [pageSize].
+     * Query to fetch albums by [searchString], [page] and [pageSize].
      */
     @Headers("Content-Type: application/json;charset=UTF-8")
     @GET("/?method=album.search&format=json")
-    suspend fun searchAlbumsBy(@Query(ALBUM_PARAM) searchString: String, @Query(PAGE_PARAM) page: Int = 1, @Query(LIMIT_PARAM) pageSize: Int = 30): Response<AlbumSearchResponse>
+    suspend fun searchAlbumsBy(
+        @Query(ALBUM_PARAM) searchString: String,
+        @Query(PAGE_PARAM) page: Int,
+        @Query(LIMIT_PARAM) pageSize: Int): Response<AlbumSearchResponse>
 }
