@@ -54,6 +54,13 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = Libs.AndroidX.Compose.version
     }
+
+    packagingOptions {
+        resources.excludes.add("**/attach_hotspot_windows.dll")
+        resources.excludes.add("META-INF/licenses/**")
+        resources.excludes.add("META-INF/AL2.0")
+        resources.excludes.add("META-INF/LGPL2.1")
+    }
 }
 
 dependencies {
@@ -84,7 +91,7 @@ dependencies {
     implementation(Libs.Google.Hilt.android)
     kapt(Libs.Google.Hilt.compiler)
 
-    // Accompanist
+    // coil
     implementation(Libs.Coil.coil)
     implementation(Libs.Coil.accompanist)
 }
