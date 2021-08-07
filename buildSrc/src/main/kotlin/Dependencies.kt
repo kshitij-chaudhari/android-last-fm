@@ -60,7 +60,6 @@ object Libs {
 
     object Google {
         const val material = "com.google.android.material:material:1.4.0"
-        const val gson = "com.google.code.gson:gson:2.6.0"
 
         object Hilt {
             const val version = "2.37"
