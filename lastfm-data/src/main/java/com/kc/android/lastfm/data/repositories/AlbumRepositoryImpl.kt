@@ -10,7 +10,10 @@ import androidx.paging.map
 import com.kc.android.lastfm.data.local.LastFmDb
 import com.kc.android.lastfm.data.local.entities.mapper.toAlbum
 import com.kc.android.lastfm.data.remote.services.LastFmService
+import com.kc.android.lastfm.domain.models.Album
+import com.kc.android.lastfm.domain.models.Response
 import com.kc.android.lastfm.domain.repositories.AlbumRepository
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
@@ -37,4 +40,16 @@ class AlbumRepositoryImpl @Inject constructor(
     ) {
         albumDao.getPaginated()
     }.flow.map { pagingData -> pagingData.map { albumEntity -> albumEntity.toAlbum() } }
+
+    /**
+     * Since the current remote api does not provide any
+     * useful information, [Album] is only fetched from local-db
+     * in the sample app.
+     */
+    override fun fetchAlbum(id: Int): Flow<Response<Album?>> = networkBoundResource(
+        query = { db.albumDao().get(id).map { it.toAlbum() } },
+        fetch = { /* not needed for sample */ },
+        saveFetchResult = { /* not needed for sample */ },
+        shouldFetch = { false }
+    )
 }

@@ -17,6 +17,5 @@ fun AlbumEntity.toAlbum() = Album(
     url = this.url,
     smallImage = this.smallImage,
     mediumImage = this.mediumImage,
-    largeImage = this.largeImage,
-    extraLargeImage = this.extraLargeImage
+    largeImage = this.largeImage
 )

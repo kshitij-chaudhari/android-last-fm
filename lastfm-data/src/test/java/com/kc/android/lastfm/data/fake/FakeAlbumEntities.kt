@@ -17,8 +17,7 @@ object FakeAlbumEntities {
         url = "https://www.last.fm/music/Disturbed/Believe",
         smallImage = "https://lastfm.freetls.fastly.net/i/u/34s/dcf5cf4b9da64e979719a102acd222cc.png",
         mediumImage = "https://lastfm.freetls.fastly.net/i/u/64s/dcf5cf4b9da64e979719a102acd222cc.png",
-        largeImage = "https://lastfm.freetls.fastly.net/i/u/174s/dcf5cf4b9da64e979719a102acd222cc.png",
-        extraLargeImage = "https://lastfm.freetls.fastly.net/i/u/300x300/dcf5cf4b9da64e979719a102acd222cc.png"
+        largeImage = "https://lastfm.freetls.fastly.net/i/u/174s/dcf5cf4b9da64e979719a102acd222cc.png"
     )
 
     fun makeBelieve(id: Int = 0) = AlbumEntity(
@@ -29,7 +28,6 @@ object FakeAlbumEntities {
         url = "https://www.last.fm/music/Weezer/Make+Believe",
         smallImage = "https://lastfm.freetls.fastly.net/i/u/34s/1c8439b16ed4ca4e0bac727e7b325581.png",
         mediumImage = "https://lastfm.freetls.fastly.net/i/u/64s/1c8439b16ed4ca4e0bac727e7b325581.png",
-        largeImage = "https://lastfm.freetls.fastly.net/i/u/174s/1c8439b16ed4ca4e0bac727e7b325581.png",
-        extraLargeImage = "https://lastfm.freetls.fastly.net/i/u/300x300/1c8439b16ed4ca4e0bac727e7b325581.png"
+        largeImage = "https://lastfm.freetls.fastly.net/i/u/174s/1c8439b16ed4ca4e0bac727e7b325581.png"
     )
 }

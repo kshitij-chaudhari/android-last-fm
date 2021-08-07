@@ -8,6 +8,8 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.kc.android.lastfm.ui.feature.albums.details.AlbumDetailsScreen
+import com.kc.android.lastfm.ui.feature.albums.details.AlbumDetailsViewModel
 import com.kc.android.lastfm.ui.feature.albums.list.AlbumsListScreen
 import com.kc.android.lastfm.ui.feature.albums.list.AlbumsListViewModel
 
@@ -17,6 +19,7 @@ import com.kc.android.lastfm.ui.feature.albums.list.AlbumsListViewModel
  */
 sealed class Destinations(val route: String) {
     object AlbumsListScreen : Destinations("albums-list-screen-route")
+    object AlbumDetailsScreen : Destinations("album-details-screen-route")
 }
 
 /**
@@ -31,7 +34,12 @@ fun NavGraph(navController: NavHostController) {
 
         composable(Destinations.AlbumsListScreen.route) {
             val albumsListViewModel = hiltViewModel<AlbumsListViewModel>()
-            AlbumsListScreen(albumsListViewModel)
+            AlbumsListScreen(navController, albumsListViewModel)
+        }
+
+        composable("${Destinations.AlbumDetailsScreen.route}/{albumId}") {
+            val albumDetailsViewModel = hiltViewModel<AlbumDetailsViewModel>()
+            AlbumDetailsScreen(albumDetailsViewModel)
         }
     }
 }

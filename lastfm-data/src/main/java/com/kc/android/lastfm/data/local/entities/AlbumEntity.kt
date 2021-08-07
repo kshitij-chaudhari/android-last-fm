@@ -19,6 +19,5 @@ data class AlbumEntity(
     val url: String,
     val smallImage: String?,
     val mediumImage: String?,
-    val largeImage: String?,
-    val extraLargeImage: String?
+    val largeImage: String?
 )

@@ -17,6 +17,5 @@ fun AlbumDto.toAlbumEntity() = AlbumEntity(
     url = this.url,
     smallImage = this.image.firstOrNull { it.size == "small" }?.url,
     mediumImage = this.image.firstOrNull { it.size == "medium" }?.url,
-    largeImage = this.image.firstOrNull { it.size == "large" }?.url,
-    extraLargeImage = this.image.firstOrNull { it.size == "extralarge" }?.url,
+    largeImage = this.image.firstOrNull { it.size == "large" }?.url
 )

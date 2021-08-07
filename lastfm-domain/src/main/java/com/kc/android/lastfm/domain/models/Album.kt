@@ -20,5 +20,4 @@ data class Album(
     val smallImage: String?,
     val mediumImage: String?,
     val largeImage: String?,
-    val extraLargeImage: String?
 )

@@ -1,7 +1,7 @@
 /*
  * Copyright 2021 Kshitij Chaudhari
  */
-package com.kc.android.lastfm.ui.feature.albums.list
+package com.kc.android.lastfm.ui.feature.albums.list.composable
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth

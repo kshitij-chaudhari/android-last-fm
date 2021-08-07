@@ -83,4 +83,8 @@ dependencies {
     // hilt
     implementation(Libs.Google.Hilt.android)
     kapt(Libs.Google.Hilt.compiler)
+
+    // Accompanist
+    implementation(Libs.Coil.coil)
+    implementation(Libs.Coil.accompanist)
 }

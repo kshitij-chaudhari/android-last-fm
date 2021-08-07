@@ -5,6 +5,7 @@ package com.kc.android.lastfm.domain.repositories
 
 import androidx.paging.PagingData
 import com.kc.android.lastfm.domain.models.Album
+import com.kc.android.lastfm.domain.models.Response
 import kotlinx.coroutines.flow.Flow
 
 /**
@@ -22,4 +23,9 @@ interface AlbumRepository {
      * by UI, since it depends on the amount of data UI needs to show at a given time.
      */
     fun fetchAlbums(searchString: String, pageSize: Int): Flow<PagingData<Album>>
+
+    /**
+     * Fetch [Album] by [Album.id]
+     */
+    fun fetchAlbum(id: Int): Flow<Response<Album?>>
 }

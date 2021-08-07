@@ -21,5 +21,5 @@ class AlbumsListViewModel @Inject constructor(
     /**
      * Fetch flow of paginated albums from data layer.
      */
-    val albums = albumUseCase.fetchAlbums("Master of My Make-Believe (Deluxe Edition)", pageSize = 50)
+    val albums = albumUseCase.fetchAlbums("Michael Jackson", pageSize = 50)
 }

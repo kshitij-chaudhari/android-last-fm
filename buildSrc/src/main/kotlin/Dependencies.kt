@@ -85,6 +85,11 @@ object Libs {
         const val gsonConverter = "com.squareup.retrofit2:converter-gson:$version"
     }
 
+    object Coil {
+        const val coil = "io.coil-kt:coil:1.2.0"
+        const val accompanist = "com.google.accompanist:accompanist-coil:0.13.0"
+    }
+
     object Test {
         const val junit = "junit:junit:4.13.2"
         const val androidxJunitKtx = "androidx.test.ext:junit-ktx:1.1.3"
