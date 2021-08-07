@@ -14,7 +14,7 @@ import retrofit2.http.Query
  */
 interface LastFmService {
     companion object {
-        const val BASE_URL = "http://ws.audioscrobbler.com/2.0/"
+        const val BASE_URL = "https://ws.audioscrobbler.com/2.0/"
         const val API_KEY_PARAM = "api_key"
         const val ALBUM_PARAM = "album"
         const val PAGE_PARAM = "page"
@@ -25,7 +25,7 @@ interface LastFmService {
      * Query to fetch albums by [searchString], [page] and [pageSize].
      */
     @Headers("Content-Type: application/json;charset=UTF-8")
-    @GET("/?method=album.search&format=json")
+    @GET("?method=album.search&format=json")
     suspend fun searchAlbumsBy(
         @Query(ALBUM_PARAM) searchString: String,
         @Query(PAGE_PARAM) page: Int,

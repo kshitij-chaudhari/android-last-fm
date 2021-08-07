@@ -74,7 +74,11 @@ dependencies {
     implementation(Libs.AndroidX.Compose.uiToolingPreview)
     implementation(Libs.AndroidX.Compose.foundation)
     implementation(Libs.AndroidX.Compose.material)
+    implementation(Libs.AndroidX.Compose.lifecycleViewModelCompose)
     implementation(Libs.AndroidX.Compose.activityCompose)
+    implementation(Libs.AndroidX.Compose.pagingCompose)
+    implementation(Libs.AndroidX.Compose.navigationCompose)
+    implementation(Libs.AndroidX.Compose.hiltNavigationCompose)
 
     // hilt
     implementation(Libs.Google.Hilt.android)

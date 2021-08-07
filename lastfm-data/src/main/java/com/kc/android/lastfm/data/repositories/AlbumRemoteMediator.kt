@@ -3,6 +3,7 @@
  */
 package com.kc.android.lastfm.data.repositories
 
+import android.util.Log
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.LoadType
 import androidx.paging.PagingState
@@ -63,8 +64,10 @@ class AlbumRemoteMediator(
             // end of pagination reached when startIndex >= totalResults
             return MediatorResult.Success(endOfPaginationReached = response.results.startIndex >= response.results.totalResults)
         } catch (ioEx: IOException) {
+            Log.e(AlbumRemoteMediator::class.simpleName, ioEx.message, ioEx)
             return MediatorResult.Error(ioEx)
         } catch (httpEx: HttpException) {
+            Log.e(AlbumRemoteMediator::class.simpleName, httpEx.message, httpEx)
             return MediatorResult.Error(httpEx)
         }
     }
