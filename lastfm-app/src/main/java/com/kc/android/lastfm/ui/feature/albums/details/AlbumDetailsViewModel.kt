@@ -11,12 +11,12 @@ import com.kc.android.lastfm.domain.interactors.AlbumUseCase
 import com.kc.android.lastfm.domain.models.Album
 import com.kc.android.lastfm.domain.models.Response
 import dagger.hilt.android.lifecycle.HiltViewModel
-import javax.inject.Inject
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 /**
  * ViewModel for [AlbumDetailsScreen] to handle all the UI logic and data interactions.

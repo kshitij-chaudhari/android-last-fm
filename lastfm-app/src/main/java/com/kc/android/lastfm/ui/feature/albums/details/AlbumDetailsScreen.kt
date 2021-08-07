@@ -1,3 +1,6 @@
+/*
+ * Copyright 2021 Kshitij Chaudhari
+ */
 package com.kc.android.lastfm.ui.feature.albums.details
 
 import androidx.compose.foundation.layout.Column
@@ -41,9 +44,9 @@ fun AlbumDetailsScreen(albumDetailsViewModel: AlbumDetailsViewModel) {
             val album = (response as Response.Success<Album?>).data
             album?.let {
                 Column {
-                    //try to get first non-null high quality image
+                    // try to get first non-null high quality image
                     getImageUrl(album)?.let {
-                        DetailsTopImage(imagePath = album.largeImage ?:album.mediumImage?:"")
+                        DetailsTopImage(imagePath = album.largeImage ?: album.mediumImage ?: "")
                     }
 
                     // Note: below could be moved out to custom composables, but not done in the sample
@@ -69,9 +72,9 @@ fun AlbumDetailsScreen(albumDetailsViewModel: AlbumDetailsViewModel) {
 /**
  * Helper method to imageUrl with highest resolution as preference.
  */
-fun getImageUrl(album:Album) : String? {
-    return if(!album.largeImage.isNullOrEmpty()) album.largeImage
-    else if(!album.mediumImage.isNullOrEmpty()) album.mediumImage
-    else if(!album.smallImage.isNullOrEmpty()) album.smallImage
+fun getImageUrl(album: Album): String? {
+    return if (!album.largeImage.isNullOrEmpty()) album.largeImage
+    else if (!album.mediumImage.isNullOrEmpty()) album.mediumImage
+    else if (!album.smallImage.isNullOrEmpty()) album.smallImage
     else null
 }
