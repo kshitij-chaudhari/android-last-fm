@@ -16,5 +16,6 @@ This application is **developed and tested on Android Studio Arctic Fox | 2020.3
 * **ViewModel** - For UI logic.
 * **Paging-3** - For pagination support.
 * **Coroutines & Flow** - For all async operations and fetching stream of data.
+* **Room** - For temporary storage of albums needed for pagination.
 * **Retrofit & OKHttp** - For networking.
 * **Mockk & Truth** -For mocking and assertion. 

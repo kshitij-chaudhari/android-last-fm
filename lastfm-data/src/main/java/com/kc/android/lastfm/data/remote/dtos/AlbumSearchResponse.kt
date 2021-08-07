@@ -28,7 +28,7 @@ data class AlbumDto(
     val mbid: String,
     val name: String,
     val artist: String,
-    val url: String?,
+    val url: String,
     val image: List<ImageDto>
 )
 
