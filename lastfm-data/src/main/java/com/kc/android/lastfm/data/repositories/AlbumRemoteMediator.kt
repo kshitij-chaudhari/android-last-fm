@@ -60,7 +60,7 @@ class AlbumRemoteMediator(
                 albumDao.insertAll(*response.results.albumMatches.albums.map { it.toAlbumEntity() }.toTypedArray())
             }
 
-            // end of pagination reached when startIndex >=mtotalResults
+            // end of pagination reached when startIndex >= totalResults
             return MediatorResult.Success(endOfPaginationReached = response.results.startIndex >= response.results.totalResults)
         } catch (ioEx: IOException) {
             return MediatorResult.Error(ioEx)
