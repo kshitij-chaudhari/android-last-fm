@@ -1,15 +1,17 @@
 # Android Last FM App
 This application uses Last FM Api to demonstrate android best practices.
 
-Clean-architecture concept is used along with MVVM and the application is mainly divided into 3 modules ->
+Clean-architecture concept is used along with MVVM and the application is mainly divided into multiple modules ->
 - **lastfm-app** module -> Responsible to render UI.
 - **lastfm-domain** module -> Contains the Models and Use-case classes.
 - **lastfm-data** module -> Responsible to render data. Contains remote DTOs & services, DB Entities & DAOs.
 
-Data Layer uses **Jetpack Room**, **Paging3** and **Retrofit** to fetch data from database and from remote api.
-**RemoteMediator** is used to fetch paginated data from layered DataSource (DB + Remote).
-Application uses three different set of classes - DTOs, Entities & Models for remote, Database and UI communication respectively, to ensure a change in one will not break the other layer.
-UI layer is written with **Compose** using the latest Compose practices -> **Hilt-Compose, Navigation-Compose, Accompanist**.
+## Key Features
+- Application uses Kotlin DSL and Dependencies is managed in a seperate Dependencies.kt file under **buildSrc** directory.
+- Data Layer uses **Jetpack Room**, **Paging3** and **Retrofit** to fetch data from database and from remote api.
+- **RemoteMediator** is used to fetch paginated data from layered DataSource (DB + Remote).
+- Application uses three different set of classes - DTOs, Entities & Models for remote, Database and UI communication respectively, to ensure a change in one will not break the other layer.
+- UI layer is written with **Compose** using the latest Compose practices -> **Hilt-Compose, Navigation-Compose, Accompanist**.
 
 This application is **developed and tested on Android Studio Arctic Fox | 2020.3.1**.
 
