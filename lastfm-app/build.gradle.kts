@@ -61,6 +61,13 @@ android {
         resources.excludes.add("META-INF/AL2.0")
         resources.excludes.add("META-INF/LGPL2.1")
     }
+
+    testOptions {
+        unitTests {
+            isIncludeAndroidResources = true
+            isReturnDefaultValues = true
+        }
+    }
 }
 
 dependencies {
@@ -94,4 +101,8 @@ dependencies {
     // coil
     implementation(Libs.Coil.coil)
     implementation(Libs.Coil.accompanist)
+
+    // android test
+    androidTestImplementation(Libs.Test.androidxJunitKtx)
+    androidTestImplementation(Libs.AndroidX.Compose.uiTestJunit4)
 }

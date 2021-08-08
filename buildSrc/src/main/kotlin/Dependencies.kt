@@ -37,6 +37,9 @@ object Libs {
             const val foundation = "androidx.compose.foundation:foundation:$version"
             const val material = "androidx.compose.material:material:$version"
 
+            // compose test
+            const val uiTestJunit4 = "androidx.compose.ui:ui-test-junit4:$version"
+
             // compose support for other jetpack components
             const val lifecycleViewModelCompose = "androidx.lifecycle:lifecycle-viewmodel-compose:1.0.0-alpha07"
             const val activityCompose = "androidx.activity:activity-compose:1.3.1"
